@@ -1,0 +1,69 @@
+enable
+config t
+hostname R1
+
+ipv6 uni
+
+int g0/1
+ipv6 address 2002:0DB8:B2B2::B/64
+ipv6 address fe80::10 link-local
+no shut
+
+int s0/3/0
+ipv6 add 2002:0DB8:ACAD::9/64
+ipv6 address fe80::10 link-local
+no shut
+
+ipv6 route 2002:DB8:B2B2:1::/64 Serial0/3/0 FE80::20
+ipv6 route 2002:DB8:B2B2::/64 GigabitEthernet0/1 FE80::10
+
+
+-----------------
+
+enable
+config t
+hostname R2
+
+ipv6 uni
+
+int g0/1
+ipv6 address FE80::20 link-local
+ipv6 address 2002:DB9:ACAD::10/64
+no shut
+
+int s0/3/0
+ipv6 address FE80::20 link-local
+ipv6 address 2002:DB8:ACAD::A/64
+no shut
+
+ipv6 route 2002:DB8:B2B2::/64 Serial0/3/0 FE80::10
+ipv6 route 2002:DB8:B2B2:1::/64 GigabitEthernet0/1 FE80::30
+
+
+-----------------------
+
+enable
+config t
+hostname R3
+
+ipv6 uni
+
+int g0/1
+ipv6 address FE80::30 link-local
+ipv6 address 2002:DB8:B2B2:1::B/64
+no shut
+
+int g0/0
+ipv6 address FE80::30 link-local
+ipv6 address 2002:DB9:ACAD::11/64
+no shut
+
+ipv6 route 2002:DB8:B2B2::/64 GigabitEthernet0/0 FE80::20
+ipv6 route 2002:DB8:B2B2:1::/64 GigabitEthernet0/1 FE80::30
+
+--------
+PC0 - 2002:DB8:B2B2::19 | g - 2002:DB8:B2B2::B
+PC1 - 2002:DB8:B2B2::20 | g - 2002:DB8:B2B2::B
+
+
+
