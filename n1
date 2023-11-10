@@ -1,0 +1,188 @@
+Swittcehs =----------------
+
+hostname M2S1
+banner motd #This Network is Secured by BTU#
+ip default-g 10.0.0.194
+line console 0
+password btu-mid-con
+login
+
+
+Vlan 100
+name marketing
+Vlan 200
+name sales
+Vlan 300
+name management
+Vlan 400
+name native
+Vlan 500
+name unused
+
+int fa0/8
+sw mod acc
+sw acc vlan 200
+sw non
+
+int fa0/6
+sw mod acc
+sw acc vlan 100
+sw non
+
+int fa0/3
+sw mod acc
+sw acc vlan 300
+sw non
+
+int fa0/4
+sw mod tr
+sw tr nat vlan 400
+sw non
+
+int fa0/5
+sw mod tr
+sw tr nat vlan 400
+sw non
+
+int range fa0/1-2, fa0/7, fa0/9-24, g0/1-2
+sw mod acc
+sw acc vlan 500
+sw non
+shut 
+
+
+int vlan 300
+ip add 10.0.0.197 255.255.255.224
+
+
+--------------------
+
+
+hostname M2S2
+banner motd #This Network is Secured by BTU#
+ip default-g 10.0.0.194
+line console 0
+password btu-mid-con
+login
+
+
+Vlan 100
+name marketing
+Vlan 200
+name sales
+Vlan 300
+name management
+Vlan 400
+name native
+Vlan 500
+name unused
+
+int fa0/2
+sw mod acc
+sw acc vlan 200
+sw non
+
+int fa0/4
+sw mod acc
+sw acc vlan 100
+sw non
+
+
+
+int fa0/3
+sw mod tr
+sw tr nat vlan 400
+sw non
+
+
+
+int range fa0/1, fa0/5-24, g0/1-2
+sw mod acc
+sw acc vlan 500
+sw non
+shut 
+
+
+int vlan 300
+ip add 10.0.0.198 255.255.255.224
+
+Routers -------------
+
+enable
+config t
+hostname M2R1
+enable secret btu-con
+serv passw
+ip domain-n btu.ge
+username exam-mid sec btu-mid-ssg
+crypto key genera rsa  gen 4000
+line vty 0 15
+trans input ssh
+login local
+
+int g0/1
+descri Link_To_M2R2
+ip add 100.0.0.1 255.255.255.252
+no shut
+
+int g0/0
+no shut
+
+int g0/0.100
+enc dot1 100
+ip add 10.0.0.130 255.255.255.192
+
+int g0/0.200
+enc dot1 200
+ip add 10.0.0.2 255.255.255.128
+
+int g0/0.300
+enc dot1 300
+ip add 10.0.0.194 255.255.255.224
+
+
+route eig 10
+no auto
+redist
+passi def
+no pass g0/1
+network 10.0.0.128 0.0.0.63
+network 10.0.0.0 0.0.0.127
+network 10.0.0.192 0.0.0.31
+network 100.0.0.0 0.0.0.3
+
+
+-----------------
+
+enable
+config t
+hostname M2R2
+enable secret btu-con
+serv passw
+ip domain-n btu.ge
+username exam-mid sec btu-mid-ssg
+crypto key genera rsa  gen 4000
+line vty 0 15
+trans input ssh
+login local
+
+int g0/1
+descri Link_To_M2R2
+ip add 100.0.0.2 255.255.255.252
+no shut
+
+int g0/0
+ip add 172.16.0.2 255.255.255.0
+no shut
+
+route eig 10
+no auto
+redist
+passi def
+no pass g0/1
+network 172.16.0.0 0.0.0.255
+network 100.0.0.0 0.0.0.3
+
+
+
+
