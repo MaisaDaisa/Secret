@@ -1,0 +1,106 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct MyStructure {
+    char string1[50];
+    char string2[50];
+    int realNumber;
+};
+
+void printData(struct MyStructure *dataArray, int size) {
+    printf("Data in the array:\n");
+    for (int i = 0; i < size; ++i) {
+        printf("%s %s %d\n", dataArray[i].string1, dataArray[i].string2, dataArray[i].realNumber);
+    }
+}
+
+int main() {
+    FILE *file1, *file11, *file2, *file3;
+    struct MyStructure data;
+    char A;
+
+    file1 = fopen("data1", "w");
+    if (file1 == NULL) {
+        printf("Error opening the file for writing.\n");
+        return 1;
+    } else {
+        printf("Enter data for structure \n");
+        do {
+            printf("Enter the first string: ");
+            fgets(data.string1, sizeof(data.string1), stdin);
+            printf("Enter the second string: ");
+            fgets(data.string2, sizeof(data.string2), stdin);
+
+            printf("Enter the real number: ");
+            scanf("%d", &data.realNumber);
+            getchar(); //ბუფერის გაწმენდა
+
+            fprintf(file1, "%s %s %d\n", data.string1, data.string2, data.realNumber);
+
+            printf("Do you want to continue entering data? (y/n): ");
+            scanf(" %c", &A);
+            getchar();  
+
+        } while (A == 'y' || A == 'Y');
+    }
+
+    fclose(file1);
+
+    file1 = fopen("data1", "r");
+    if (file1 == NULL) {
+        printf("Error opening the file for reading.\n");
+        return 1;
+    }
+
+    file2 = fopen("data2", "w");
+    if (file2 == NULL) {
+        printf("Error opening the file for writing.\n");
+        fclose(file1);
+        return 1;
+    }
+
+    file3 = fopen("data3", "w");
+    if (file3 == NULL) {
+        printf("Error opening the file for writing.\n");
+        fclose(file1);
+        fclose(file2);
+        return 1;
+    }
+
+    int arraySize = 0;
+    struct MyStructure *dataArray = NULL;
+   
+
+    while (fgets(data.string1,sizeof(data.string1),file1)&& fgets(data.string2,sizeof(data.string2),file1)&&(fscanf(file1,"%d",&data.realNumber)==1)) 
+
+     {  size_t len1 = strcspn(data.string1, "\n");
+        if (data.string1[len1] == '\n') {
+            data.string1[len1] = '\0';  }
+
+        size_t len2 = strcspn(data.string2, "\n");
+        if (data.string2[len2] == '\n') {
+            data.string2[len2] = '\0';   } 
+        fprintf(file2, "%s %s\n ", data.string1, data.string2);
+        fprintf(file3, "%d\n", data.realNumber);
+        fgetc(file11);
+
+        dataArray = realloc(dataArray, (arraySize + 1) * sizeof(struct MyStructure));
+        strcpy(dataArray[arraySize].string1, data.string1);
+        strcpy(dataArray[arraySize].string2, data.string2);
+        dataArray[arraySize].realNumber = data.realNumber;
+
+        arraySize++;    
+    }
+
+    printData(dataArray, arraySize);
+
+    fclose(file11);
+    fclose(file2);
+    fclose(file3);
+
+    free(dataArray);
+    dataArray=NULL;
+
+    return 0;
+}
