@@ -67,7 +67,8 @@ int main() {
     while (fscanf(f1r, " %49[^\n] %49[^\n] %d\n", data.stri1, data.stri2, &data.num) == 3) 
     {  
         //vici rom fgets unda gveqna da es ar gviswavlia mara dro ar meyo gamocdaze da ase gaketebas var michveuli
-        //tan ufro advilia if shedarebit ar miwevs. scanf data1 rom meqna shemedzlo shemetana - gamotovebit da \n magivrad "-" momedzebna
+        //tan ufro advilia if shedarebit ar miwevs. scanf data1 rom meqna shemedzlo shemetana - gamotovebit stringebis shoris
+        //da \n magivrad momedzebna "-" daxmarebit mara magistvisac dro ar meyo
         //bodishi
         list = realloc(list, (listsize + 1) * sizeof(struct MonacStr));
         strcpy(list[listsize].stri1, data.stri1);
