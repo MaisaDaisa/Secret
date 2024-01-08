@@ -1,0 +1,119 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void xelit(int zoma, int masivi[zoma][zoma]);
+void randshevseba(int zoma, int masivi[zoma][zoma]);
+void printmas(int zoma, int masivi[zoma][zoma]);
+void minshec(int zoma, int masivi[zoma][zoma]);
+void maxshec(int zoma, int masivi[zoma][zoma]);
+
+int main() {
+    int choice = 0;
+    int zoma;
+    printf("Masivis zoma: ");
+    scanf("%d", &zoma);
+    int masivi[zoma][zoma];
+    
+    printf("Xelit shevseba - 0\n");
+    printf("Random shevseba - 1\n");
+    printf("archevani: ");
+    scanf("%d", &choice);
+    
+    if (choice == 0) {
+        xelit(zoma, masivi);
+    } else {
+        randshevseba(zoma, masivi);
+    }
+    printmas(zoma, masivi);
+    
+    maxshec(zoma, masivi);
+    printmas(zoma, masivi);
+    
+    minshec(zoma, masivi);
+    printmas(zoma, masivi);
+    
+
+    return 0;
+}
+void xelit(int zoma, int masivi[zoma][zoma]) {
+    for (int i = 0; i < zoma; i++) {
+        for (int j = 0; j < zoma; j++) {
+            printf("%d %d = ", i, j);
+            scanf("%d", &masivi[i][j]);
+        }
+    }
+}
+
+void randshevseba(int zoma, int masivi[zoma][zoma]) {
+    srand(time(NULL));
+    for (int i = 0; i < zoma; i++) {
+        for (int j = 0; j < zoma; j++) {
+            masivi[i][j] = rand() % 100;
+        }
+    }
+}
+
+void printmas(int zoma, int masivi[zoma][zoma]) {
+    for (int i = 0; i < zoma; i++) {
+        for (int j = 0; j < zoma; j++) {
+            printf("%d ", masivi[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+void maxshec(int zoma, int masivi[zoma][zoma]) {
+    int max = masivi[0][0];
+    int maxi = 0;
+    int maxj = 0;
+    int temp;
+    
+    for (int i = 0; i < zoma; i++) {
+        for (int j = 0; j < zoma; j++) {
+            if(masivi[i][j] > max) {
+                max = masivi[i][j];
+                maxi = i; 
+                maxj = j;
+            }
+        }
+    }
+    
+    printf("maximum = %d\n\n", max);
+    
+    if (maxj != 0) {
+        temp = masivi[maxi][0];
+        masivi[maxi][0] = masivi[maxi][maxj];
+        masivi[maxi][maxj] = temp;
+    }
+    
+    
+}
+
+void minshec(int zoma, int masivi[zoma][zoma]) {
+    int min = masivi[0][0];
+    int mini = 1;
+    int minj = 0;
+    int temp;
+    
+    for (int i = 0; i < zoma; i++) {
+        for (int j = 0; j < zoma; j++) {
+            if(masivi[i][j] < min) {
+                min = masivi[i][j];
+                mini = i; 
+                minj = j;
+            }
+        }
+    }
+    
+    printf("minimum = %d\n\n", min);
+    
+    if (minj != zoma-1) {
+        temp = masivi[mini][zoma-1];
+        masivi[mini][zoma-1] = masivi[mini][minj];
+        masivi[mini][minj] = temp;
+    }
+    
+    
+}
