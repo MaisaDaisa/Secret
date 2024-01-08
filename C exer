@@ -2,105 +2,89 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct MyStructure {
-    char string1[50];
-    char string2[50];
-    int realNumber;
+// Define the structure
+struct MonacStr {
+    char stri1[50];
+    char stri2[50];
+    int num;
 };
 
-void printData(struct MyStructure *dataArray, int size) {
-    printf("Data in the array:\n");
-    for (int i = 0; i < size; ++i) {
-        printf("%s %s %d\n", dataArray[i].string1, dataArray[i].string2, dataArray[i].realNumber);
-    }
-}
-
 int main() {
-    FILE *file1, *file11, *file2, *file3;
-    struct MyStructure data;
+    struct MonacStr data;
     char A;
 
-    file1 = fopen("data1", "w");
-    if (file1 == NULL) {
-        printf("Error opening the file for writing.\n");
+    FILE *f1 = fopen("data1", "w");
+    if (f1 == NULL) {
+        printf("f1 problem.\n");
         return 1;
     } else {
-        printf("Enter data for structure \n");
         do {
-            printf("Enter the first string: ");
-            fgets(data.string1, sizeof(data.string1), stdin);
-            printf("Enter the second string: ");
-            fgets(data.string2, sizeof(data.string2), stdin);
+            printf("striqoni1: ");
+            fgets(data.stri1, sizeof(data.stri1), stdin);
 
-            printf("Enter the real number: ");
-            scanf("%d", &data.realNumber);
-            getchar(); //ბუფერის გაწმენდა
+            printf("striqoni2: ");
+            fgets(data.stri2, sizeof(data.stri2), stdin);
 
-            fprintf(file1, "%s %s %d\n", data.string1, data.string2, data.realNumber);
+            printf("mteli ricxvi: ");
+            scanf("%d", &data.num);
+            getchar();  // buferi gawmenda
 
-            printf("Do you want to continue entering data? (y/n): ");
+            fprintf(f1, "%s %s %d\n", data.stri1, data.stri2, data.num);
+
+            printf("gagrdzeleba ginda? (y/n): ");
             scanf(" %c", &A);
-            getchar();  
+            getchar(); //buferis gawmenda  
 
         } while (A == 'y' || A == 'Y');
     }
 
-    fclose(file1);
+    fclose(f1);
 
-    file1 = fopen("data1", "r");
-    if (file1 == NULL) {
-        printf("Error opening the file for reading.\n");
+    FILE *f1r = fopen("data1", "r");
+    if (f1r == NULL) {
+        printf("f1r problem.\n");
         return 1;
     }
 
-    file2 = fopen("data2", "w");
-    if (file2 == NULL) {
-        printf("Error opening the file for writing.\n");
-        fclose(file1);
+    FILE *f2 = fopen("data2", "w");
+    if (f2 == NULL) {
+        printf("f2 problem.\n");
+        fclose(f1);
         return 1;
     }
 
-    file3 = fopen("data3", "w");
-    if (file3 == NULL) {
-        printf("Error opening the file for writing.\n");
-        fclose(file1);
-        fclose(file2);
+    FILE *f3 = fopen("data3", "w");
+    if (f3 == NULL) {
+        printf("f3 problem.\n");
+        fclose(f1);
+        fclose(f2);
         return 1;
     }
 
-    int arraySize = 0;
-    struct MyStructure *dataArray = NULL;
-   
+    int listsize = 0;
+    struct MonacStr *list= NULL;
 
-    while (fgets(data.string1,sizeof(data.string1),file1)&& fgets(data.string2,sizeof(data.string2),file1)&&(fscanf(file1,"%d",&data.realNumber)==1)) 
-
-     {  size_t len1 = strcspn(data.string1, "\n");
-        if (data.string1[len1] == '\n') {
-            data.string1[len1] = '\0';  }
-
-        size_t len2 = strcspn(data.string2, "\n");
-        if (data.string2[len2] == '\n') {
-            data.string2[len2] = '\0';   } 
-        fprintf(file2, "%s %s\n ", data.string1, data.string2);
-        fprintf(file3, "%d\n", data.realNumber);
-        fgetc(file11);
-
-        dataArray = realloc(dataArray, (arraySize + 1) * sizeof(struct MyStructure));
-        strcpy(dataArray[arraySize].string1, data.string1);
-        strcpy(dataArray[arraySize].string2, data.string2);
-        dataArray[arraySize].realNumber = data.realNumber;
-
-        arraySize++;    
+    while (fscanf(f1r, " %49[^\n] %49[^\n] %d\n", data.stri1, data.stri2, &data.num) == 3) 
+    {  
+        //vici rom fgets unda gveqna da es ar gviswavlia mara dro ar meyo gamocdaze da ase gaketebas var michveuli
+        //tan ufro advilia if shedarebit ar miwevs. scanf data1 rom meqna shemedzlo shemetana - gamotovebit da \n magivrad "-" momedzebna
+        //bodishi
+        list = realloc(list, (listsize + 1) * sizeof(struct MonacStr));
+        strcpy(list[listsize].stri1, data.stri1);
+        strcpy(list[listsize].stri2, data.stri2);
+        list[listsize].num = data.num;
+        printf("%s - %s - %d\n", list[listsize].stri1, list[listsize].stri2, list[listsize].num);
+        //sanam chaiwereba filebshi jer printavs "ფაილებში ჩაწერამდე სტრუქტურის ჩანაწერები დაბეჭდეთ კონსოლზე "
+        fprintf(f2, "%s - %s\n", list[listsize].stri1, list[listsize].stri1);
+        fprintf(f3, "%d\n", list[listsize].num);
+    
+        listsize++;    
     }
-
-    printData(dataArray, arraySize);
-
-    fclose(file11);
-    fclose(file2);
-    fclose(file3);
-
-    free(dataArray);
-    dataArray=NULL;
-
+    
+    fclose(f1r);
+    
+    free(list);
+    list=NULL;
+    
     return 0;
 }
