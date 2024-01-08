@@ -12,6 +12,8 @@ struct MonacStr {
 int main() {
     struct MonacStr data;
     char A;
+    
+    printf("|--------------------|\n");
 
     FILE *f1 = fopen("data1", "w");
     if (f1 == NULL) {
@@ -37,6 +39,8 @@ int main() {
 
         } while (A == 'y' || A == 'Y');
     }
+    
+    printf("|--------------------|\n");
 
     fclose(f1);
 
