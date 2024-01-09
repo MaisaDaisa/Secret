@@ -86,7 +86,9 @@ int main() {
     }
     
     fclose(f1r);
-    
+    fclose(f2);
+    fclose(f3);
+
     free(list);
     list=NULL;
     
