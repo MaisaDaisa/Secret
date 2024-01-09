@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Define the structure
 struct MonacStr {
     char stri1[50];
     char stri2[50];
@@ -79,7 +78,7 @@ int main() {
         strcpy(list[listsize].stri2, data.stri2);
         list[listsize].num = data.num;
         printf("%s - %s - %d\n", list[listsize].stri1, list[listsize].stri2, list[listsize].num);
-        //sanam chaiwereba filebshi jer printavs "ფაილებში ჩაწერამდე სტრუქტურის ჩანაწერები დაბეჭდეთ კონსოლზე "
+        //"ფაილებში ჩაწერამდე სტრუქტურის ჩანაწერები დაბეჭდეთ კონსოლზე "
         fprintf(f2, "%s - %s\n", list[listsize].stri1, list[listsize].stri1);
         fprintf(f3, "%d\n", list[listsize].num);
     
