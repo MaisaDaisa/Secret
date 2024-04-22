@@ -1,0 +1,182 @@
+//უსგ
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+
+//უსჯ
+int lcm(int a, int b) {
+    return (a * b) / gcd(a, b);
+}
+
+//ფაქტორიალი
+int factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+
+-----------------STACK------------------
+#include <stack>
+stack <int> st;
+
+push()
+ელემენტის ჩამატება სტეკში. ახლად დამატებული ელემენტი
+ყოველთვის ხდება სტეკის სათავე, ხოლო ის ელემენტი კი,
+რომელიც აქამდე იყო სტეკის სათავე, ხდება მისი მომდევნო.
+
+pop()
+ელემენტის წაშლა სტეკიდან. ყოველთვის იშლება სათავეში მყოფი
+ელემენტი, ხოლო მისი მომდევნო ელემენტი ხდება ახალი სათავე.
+
+top()
+მიმართვა სათავეში მყოფ ელემენტზე.
+
+size()
+ეს ფუნქცია აბრუნებს სტეკში არსებულ ელემენტთა რაოდენობას.
+
+empty() 
+ბულის ტიპის ფუნქცია, რომელიც გვატყობინებს არის თუ არა
+სტეკი ცარიელი. მისი მნიშვნელობა შეიძლება იყოს მხოლოდ
+TRUE ან FALSE.
+
+
+STACK-ში ინახება დროებითი ცვლადები პროგრამის ჩატვირთვისას
+
+
+-----QUEUE-----------
+
+რიგისათვის ელემენტის დამატების ოპერაციას დავარქვათ ENQUEUE,
+ხოლო რიგიდან ელემენტის წაშლის ოპერაციას – DEQUEUE.
+
+
+HEAD - პირველი ელემენტი - მარცხ
+TAIL- ბოლოს დამატებული ელემენტი - მარჯ
+პრინციპი არის სტეკივით ემატება მარჯ
+
+front - რიგის დასაწყისი
+rear - რიგის ბოლო
+
+თუ head[Q]=tail[Q], მაშინ რიგი ცარიელია
+
+თავდაპირველად ყოველთვის head[Q]=tail[Q]=1.
+
+#include <queue>
+
+push() - რიგის ბოლოში ჩამატება
+pop() - სათავეში წაშლა
+front() - სათავეს მნიშვნელობა
+back() - ბოლოში მყოფის მნიშვნელობა
+size()
+empty()
+
+--------------deque - დეკი -------------
+
+ორთავიანი queue
+
+#include <deque>
+front() - მიმართვა დეკის სათავეზე
+back() - მიმართვა დეკის ბოლოზე
+push_front() - ელემენტის ჩამატება დეკის სათავეში
+push_back() - ელემენტის ჩამატება დეკის ბოლოში
+pop_front() - ელემენტის წაშლა დეკის სათავეში
+pop_back() - ელემენტის წაშლა დეკის ბოლოში
+size() - აბრუნებს დეკში არსებულ ელემენტთა რაოდენობას
+empty() - ბულის ტიპის ფუნქცია, რომელიც გვატყობინებს არის თუ არა დეკი ცარიელი. მისი
+მნიშვნელობა შეიძლება იყოს მხოლოდ TRUE ან FALSE.
+
+--------------------------------------------------------
+1) 
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+//უსგ
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+
+//უსჯ
+int lcm(int a, int b) {
+    return (a * b) / gcd(a, b);
+}
+
+int main() {
+    
+    int A[10];
+    int maxKent, minLuw;
+    int maxKentIndex = 1;
+    int minLuwIndex = 0;
+    srand(time(0));
+    
+    for (int i = 0; i < 10; i++) {
+        A[i] = rand() % 31 - 10;
+    }
+    
+    minLuw = A[minLuwIndex];
+    maxKent= A[maxKentIndex];
+
+    for (int i = 0; i < 10; i++) {
+        if ((i % 2) == 0 && A[i] < minLuw ) {
+            minLuw = A[i];
+            minLuwIndex = i;
+        }
+        if ((i % 2) == 1 && A[i] > maxKent ) {
+            maxKent = A[i];
+            maxKentIndex = i;
+        }
+    }
+    
+    int USG = gcd(minLuw, maxKent);
+    int USJ = lcm(minLuw, maxKent);
+    cout << "USG ARIS " << USG << endl;
+    cout << "USJ ARIS " << USJ << endl;
+    A[maxKentIndex] = USJ;
+    
+     for (int num : A) {
+        cout << num << endl;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+2) 
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> nums;
+
+    for (int i = 100; i <= 999; ++i) {
+        int num = (i * 1000) + i;
+        nums.push_back(num);
+    }
+	
+    cout << "Sul aris aseti ricxvi: " << nums.size() << endl;
+
+    for (int num : nums) {
+        cout << num << endl;
+    }
+
+    return 0;
+}
