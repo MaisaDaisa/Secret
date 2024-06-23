@@ -1,0 +1,78 @@
+#include <iostream>
+#include <ctime>
+#include <algorithm>
+
+using namespace std;
+
+// kompileri itxovs constantas masivis deklaraciistvis
+const int N = 30;
+const int M = 15;
+
+void printMas(int mas[N][M]);
+
+int main() {
+    srand(time(0));
+
+    if (!(2 <= N && N <= 100)) {
+        cout << "N ararswori diapazoni" << endl;
+        return 2;
+    }
+    if (!(2 <= M && M <= 100)) {
+        cout << "M ararswori diapazoni" << endl;
+        return 2;
+    }
+
+    int A[N][M];
+    int B[N][M] = { 0 };
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            A[i][j] = rand() % 2;
+        }
+    }
+
+    for (int i = 0; i < N; i++) {
+        B[i][0] = A[i][0];
+    }
+    for (int j = 0; j < M; j++) {
+        B[0][j] = A[0][j];
+    }
+
+    int maxSize = 0;
+    int maxi = 0, maxj = 0;
+
+    for (int i = 1; i < N; i++) {
+        for (int j = 1; j < M; j++) {
+            if (A[i][j] == 1) {
+                B[i][j] = min({ B[i][j - 1], B[i - 1][j], B[i - 1][j - 1] }) + 1;
+                if (B[i][j] > maxSize) {
+                    maxSize = B[i][j];
+                    maxi = i;
+                    maxj = j;
+
+                }
+            }
+            else {
+                B[i][j] = 0;
+            }
+        }
+    }
+
+    printMas(A);
+    printMas(B);
+
+    cout << "Max aris: " << maxSize << endl;
+    cout << "qveda marjvena aris " << maxi << " " << maxj << endl;
+
+    return 0;
+}
+
+void printMas(int mas[N][M]) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            cout << mas[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}

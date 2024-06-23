@@ -1,0 +1,157 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+// Aq constebi tu ar gamoviyene programa errors migdebda kompilaciis dros
+const int MIN_SIZE = 2;
+const int MAX_SIZE = 10000;
+const int N = 30;
+const int M = 15;
+
+void printMas(int mas[], int startindex) {
+    bool leading_zero = true;
+    for (int i = startindex; i >= 0; i--) {
+        if (leading_zero && mas[i] == 0) continue;
+        leading_zero = false;
+        cout << mas[i] << " ";
+    }
+    if (leading_zero) cout << 0;
+    cout << endl;
+}
+
+int isGreaterOrEqual(const int A_mas[], const int B_mas[]) {
+    for (int i = MAX_SIZE-1; i >= 0; i--) {
+        if (A_mas[i] > B_mas[i]) return 0;
+        if (A_mas[i] < B_mas[i]) return 1;
+    }
+    return 2;
+}
+
+void Gamokleba(int A_mas[], int B_mas[], int maxStartIndex, int result[]) {
+    int borrow = 0;
+    int index = 0;
+    while (index <= maxStartIndex) {
+        int diff = A_mas[index] - B_mas[index] - borrow;
+        if (diff < 0) {
+            diff += 10;
+            borrow = 1;
+        }
+        else {
+            borrow = 0;
+        }
+        result[index] = diff;
+        index++;
+    }
+}
+
+bool Chawera(int mas[], int& Sidide, char masAso) {
+    char answer = 'L';
+    bool isNegative = false;
+    while (answer != 'Y' && answer != 'N') {
+        cout << masAso << " aris uaryofiti? ( Y / N ): ";
+        cin >> answer;
+        isNegative = (answer == 'Y');
+    }
+
+    while (!(MIN_SIZE <= Sidide && Sidide <= MAX_SIZE)) {
+        cout << "ramden ricxva ginda iyos " << masAso << " (" << MIN_SIZE << " <= " << masAso << " <= " << MAX_SIZE << "): ";
+        cin >> Sidide;
+    }
+
+    int startIndex = Sidide - 1;
+    cout << "start index is " << startIndex << endl;
+    int temp = -1;
+
+    for (int i = startIndex; i >= 0; i--) {
+        temp = -1;
+        while (!(0 <= temp && temp < 10)) {
+            cout << "Chawere ricxvi (0 <= ricxvi < 10): ";
+            cin >> temp;
+            if (!(0 <= temp && temp < 10)) {
+                cout << "cudi ricxvi Try again" << endl;
+            }
+        }
+        mas[i] = temp;
+    }
+
+    return isNegative;
+}
+
+void Dajameba(int A_mas[], int B_mas[], int maxStartIndex, int result[]) {
+    int carry = 0;
+    int index = 0;
+    while (index <= maxStartIndex) {
+        int sum = A_mas[index] + B_mas[index] + carry;
+        result[index] = sum % 10;
+        carry = sum / 10;
+        index++;
+    }
+
+    if (carry) {
+        result[index + 1] = carry;
+    }
+}
+
+int main() {
+    if (!(30 <= N && N <= MAX_SIZE)) {
+        cout << "N ararswori diapazoni" << endl;
+        return 2;
+    }
+    if (!(2 <= M && M <= MAX_SIZE)) {
+        cout << "M ararswori diapazoni" << endl;
+        return 2;
+    }
+
+    int A[MAX_SIZE] = { 0 };
+    int B[MAX_SIZE] = { 0 };
+
+    int sidideA = 0;
+    bool A_negative = Chawera(A, sidideA, 'A');
+    int sidideB = 0;
+    bool B_negative = Chawera(B, sidideB, 'B');
+
+    cout << "sidideA: " << sidideA << " sidideB: " << sidideB << endl;
+
+    int startIndexA = MAX_SIZE - sidideA;
+    int startIndexB = MAX_SIZE - sidideB;
+
+    printMas(A, startIndexA);
+    printMas(B, startIndexB);
+
+    // yvelaze didi ricvas indexis amogeba
+    int maxStartIndex = max(startIndexA, startIndexB);
+    // mimateba gamoklebisas maximum ricxvta raodenoba sheidzleba gaizardos 1it tu ar vcdebi
+    int result[MAX_SIZE + 1] = { 0 };
+
+    if (A_negative == B_negative) {
+        Dajameba(A, B, maxStartIndex, result);
+        if (A_negative) { cout << "- "; }
+        printMas(result, maxStartIndex - 1);
+
+    } else {
+        cout << "Shedegi aris: ";
+        switch (isGreaterOrEqual(A, B)) {
+            case (0):
+                // roca A metia Bze
+                Gamokleba(A, B, maxStartIndex, result);
+                if (A_negative) { cout << "- "; }
+                printMas(result, maxStartIndex - 1);
+                break;
+            case (1):
+                // aq B metia Aze
+                Gamokleba(B, A, maxStartIndex, result);
+                if (B_negative) { cout << "- "; }
+                printMas(result, maxStartIndex - 1);
+                break;
+            case (2):
+                // toli
+                Gamokleba(A, B, maxStartIndex, result);
+                printMas(result, maxStartIndex - 1);
+                break;
+        }
+
+    }
+
+    return 0;
+}

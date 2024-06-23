@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+void printMas(int* mas, int index);
+int povnaNashtis(int* mas, int index, int gamyofi);
+
+int main() {
+
+    const int max_n = 100000;
+    int m = 0;
+
+
+    while (!(m <= 1015 && m >= 2)) {
+        cout << "Chawere m (2 <= m <= 1015): ";
+        cin >> m;
+    }
+
+    int sidide = 0;
+    while (!(2 <= sidide && sidide <= max_n)) {
+        cout << "ramden ricxva ginda iyos A (2 <= A <= 100000): ";
+        cin >> sidide;
+    }
+
+    int A[max_n] = { 0 };
+    int index = sidide - 1;
+
+    // masivi iwereba ukugma da ikavebs 0 indexidan sidide-1 indexamde
+    for (int i = index; i >= 0; i--) {
+        int temp = -1;
+        while (!(0 <= temp && temp < 10)) {
+            cout << "Chawere ricxvi (0 <= ricxvi < 10): ";
+            cin >> temp;
+        }
+        A[i] = temp;
+    }
+
+    printMas(A, index);
+
+    int nashti = povnaNashtis(A, index, m);
+
+    cout << "NASHTI ARIS " << nashti << endl;
+    return 0;
+}
+
+void printMas(int* mas, int index) {
+    for (int i = index; i >= 0; i--) {
+        cout << mas[i] << " ";
+    }
+    cout << endl;
+}
+
+
+int povnaNashtis(int* mas, int index, int gamyofi) {
+    int nashti = 0;
+    for (int i = index; i >= 0; i--) {
+        nashti = (nashti * 10 + mas[i]) % gamyofi;
+    }
+    return nashti;
+}
+
+

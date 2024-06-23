@@ -1,0 +1,74 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void printMas(int* mas, int start, int end) {
+    for (int i = start; i < end; i++) {
+        cout << mas[i] << " ";
+    }
+    cout << endl;
+}
+
+void ToBaseP(int number, int p, int res_B_P[], int& index) {
+    index = 0;
+    while (number > 0) {
+        res_B_P[index] = number % p;
+        index++;
+        number /= p;
+    }
+}
+
+int main() {
+    //კონსოლიდან შეყვანა არ შეიძლება error-ს მიგდებს მასივის დეკლატაციაზე
+    const int n = 15;
+    const int p = 7;
+
+    if (!(3 <= n && n <= 15)) {
+        cout << "cudi n diapazoni" << endl;
+        return 2;
+    }
+    if (!(2 <= p && p < 10)) {
+        cout << "cudi p diapazoni" << endl;
+        return 3;
+    }
+
+    int sidide = 0;
+    while (!(3 <= sidide && sidide <= n)) {
+        cout << "ramden ricxva ginda iyos A (3 <= A <= " << n << "): ";
+        cin >> sidide;
+    }
+
+    int A[n] = { 0 };
+    int startIndex = n - sidide;
+    cout << "start index is " << startIndex << endl;
+    int temp;
+
+    for (int i = startIndex; i < n; i++) {
+        temp = -1;
+        while (!(0 <= temp && temp < 10)) {
+            cout << "Chawere ricxvi (0 <= ricxvi < 10): ";
+            cin >> temp;
+        }
+        A[i] = temp;
+    }
+
+    printMas(A, startIndex, n);
+
+    int result = 0;
+    for (int i = startIndex; i < n; i++) {
+        result = result * 10 + A[i];
+    }
+
+    int res_B_P[100];
+    int index = 0;
+    ToBaseP(result, p, res_B_P, index);
+
+    cout << "Result in base " << p << ": ";
+    for (int i = index - 1; i >= 0; --i) {
+        cout << res_B_P[i];
+    }
+    cout << endl;
+
+    return 0;
+}
