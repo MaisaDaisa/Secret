@@ -1,0 +1,10 @@
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-12-sql\bin\Debug\C-sharp-12-sql.exe.config
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-12-sql\bin\Debug\C-sharp-12-sql.exe
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-12-sql\bin\Debug\C-sharp-12-sql.pdb
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-12-sql\obj\Debug\C-sharp-12-sql.csproj.AssemblyReference.cache
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-12-sql\obj\Debug\C_sharp_12_sql.Form1.resources
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-12-sql\obj\Debug\C_sharp_12_sql.Properties.Resources.resources
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-12-sql\obj\Debug\C-sharp-12-sql.csproj.GenerateResource.cache
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-12-sql\obj\Debug\C-sharp-12-sql.csproj.CoreCompileInputs.cache
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-12-sql\obj\Debug\C-sharp-12-sql.exe
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-12-sql\obj\Debug\C-sharp-12-sql.pdb

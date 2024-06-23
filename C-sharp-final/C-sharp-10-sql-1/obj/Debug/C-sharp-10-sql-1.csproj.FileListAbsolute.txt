@@ -1,0 +1,10 @@
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-10-sql-1\bin\Debug\C-sharp-10-sql-1.exe.config
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-10-sql-1\bin\Debug\C-sharp-10-sql-1.exe
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-10-sql-1\bin\Debug\C-sharp-10-sql-1.pdb
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-10-sql-1\obj\Debug\C-sharp-10-sql-1.csproj.AssemblyReference.cache
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-10-sql-1\obj\Debug\C_sharp_10_sql_1.Form1.resources
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-10-sql-1\obj\Debug\C_sharp_10_sql_1.Properties.Resources.resources
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-10-sql-1\obj\Debug\C-sharp-10-sql-1.csproj.GenerateResource.cache
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-10-sql-1\obj\Debug\C-sharp-10-sql-1.csproj.CoreCompileInputs.cache
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-10-sql-1\obj\Debug\C-sharp-10-sql-1.exe
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-10-sql-1\obj\Debug\C-sharp-10-sql-1.pdb
