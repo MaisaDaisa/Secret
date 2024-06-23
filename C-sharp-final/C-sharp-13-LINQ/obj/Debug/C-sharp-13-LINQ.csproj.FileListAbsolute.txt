@@ -1,0 +1,10 @@
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-13-LINQ\bin\Debug\C-sharp-13-LINQ.exe.config
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-13-LINQ\bin\Debug\C-sharp-13-LINQ.exe
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-13-LINQ\bin\Debug\C-sharp-13-LINQ.pdb
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-13-LINQ\obj\Debug\C-sharp-13-LINQ.csproj.AssemblyReference.cache
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-13-LINQ\obj\Debug\C_sharp_13_LINQ.Form1.resources
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-13-LINQ\obj\Debug\C_sharp_13_LINQ.Properties.Resources.resources
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-13-LINQ\obj\Debug\C-sharp-13-LINQ.csproj.GenerateResource.cache
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-13-LINQ\obj\Debug\C-sharp-13-LINQ.csproj.CoreCompileInputs.cache
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-13-LINQ\obj\Debug\C-sharp-13-LINQ.exe
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-13-LINQ\obj\Debug\C-sharp-13-LINQ.pdb
