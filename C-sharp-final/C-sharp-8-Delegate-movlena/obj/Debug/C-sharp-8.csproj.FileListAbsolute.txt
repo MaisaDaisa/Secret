@@ -1,0 +1,10 @@
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-8\bin\Debug\C-sharp-8.exe.config
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-8\bin\Debug\C-sharp-8.exe
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-8\bin\Debug\C-sharp-8.pdb
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-8\obj\Debug\C-sharp-8.csproj.AssemblyReference.cache
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-8\obj\Debug\C_sharp_8.Form1.resources
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-8\obj\Debug\C_sharp_8.Properties.Resources.resources
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-8\obj\Debug\C-sharp-8.csproj.GenerateResource.cache
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-8\obj\Debug\C-sharp-8.csproj.CoreCompileInputs.cache
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-8\obj\Debug\C-sharp-8.exe
+C:\Users\maisa\OneDrive\Desktop\UNI\3 სემესტრი\C ალგორითმები\C#\MomzadebaSHUALEDURI\C-sharp-8\obj\Debug\C-sharp-8.pdb
