@@ -114,20 +114,39 @@ namespace C_sharp_14_catch
         შეტყობინება.
             */
 
-            int[] mas = { 1, 2, 3, 4, 5, 6, 7 };
-            BinaryWriter fl1 = null;
-
-            try
-            {
-                fl1 = new BinaryWriter(new FileStream("ricxvi.txt", FileMode.OpenOrCreate, FileAccess.Write));
-                for (int i = 0; i < mas.Length; i++)
-                {
-                    fl1.Write(mas[i]);
-                }
-            }
-            finally { 
-                if (fl1 != null) fl1.Close();
-            }
+             int[] mas = { 1, 2, 3, 4, 5, 6, 7 };
+             BinaryWriter fl1 = null;
+            
+             try
+             {
+                 fl1 = new BinaryWriter(new FileStream("ricxvi.txt", FileMode.OpenOrCreate, FileAccess.Write));
+                 for (int i = 0; i < mas.Length; i++)
+                 {
+                     fl1.Write(mas[i]);
+                 }
+             }
+             finally { 
+                 if (fl1 != null) fl1.Close();
+             }
+            
+             BinaryReader reader = null;
+             try
+             {
+                 reader = new BinaryReader(new FileStream("ricxvi.txt", FileMode.Open, FileAccess.Read));
+                 while (reader.BaseStream.Position != reader.BaseStream.Length)
+                 {
+                     int value = reader.ReadInt32();
+                     label1.Text += value.ToString() + " ";
+                 }
+             }
+             catch 
+             {
+                 label1.Text = "Probelma moxda";
+             }
+             finally
+             {
+                 if (reader != null) reader.Close();
+             }
             
 
 
